@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penilaian PORSENI - Masuk</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Masuk Sebagai Juri</h2>
+
+    <label for="inputJuri">Nama Juri:</label>
+    <select id="inputJuri">
+      <option value="">-- Pilih Nama Juri --</option>
+      <option value="Bu Rina">Bu Rina</option>
+      <option value="Pak Dedi">Pak Dedi</option>
+      <option value="Ibu Sari">Ibu Sari</option>
+      <!-- Tambah nama juri lainnya -->
+    </select>
+
+    <button id="btnLanjut">Lanjut</button>
+
+    <div id="pilihanLomba" style="display:none; margin-top: 30px;">
+      <h3>Pilih Lomba</h3>
+      <div class="lomba-buttons">
+        <button class="lombaBtn" data-lomba="Tari">Tari</button>
+        <button class="lombaBtn" data-lomba="Futsal">Futsal</button>
+        <button class="lombaBtn" data-lomba="Pidato">Pidato</button>
+        <!-- Tambah tombol lomba lain -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
