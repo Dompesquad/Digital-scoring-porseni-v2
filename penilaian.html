@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form Penilaian Lomba</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2 id="judulLomba">Penilaian Lomba</h2>
+    <p id="infoJuri"></p>
+
+    <form id="formNilai">
+      <label for="inputPeserta">Nama Peserta:</label>
+      <input type="text" id="inputPeserta" required />
+
+      <label for="nilai1">Nilai 1:</label>
+      <input type="number" id="nilai1" step="0.01" min="0" max="100" required />
+
+      <label for="nilai2">Nilai 2:</label>
+      <input type="number" id="nilai2" step="0.01" min="0" max="100" required />
+
+      <label for="nilai3">Nilai 3:</label>
+      <input type="number" id="nilai3" step="0.01" min="0" max="100" required />
+
+      <button type="submit">Simpan Nilai</button>
+    </form>
+
+    <div id="daftarNilai" style="margin-top: 30px;"></div>
+
+    <div class="export-buttons">
+      <button id="btnExportExcel">Export Excel (Lomba)</button>
+      <button id="btnExportJuri">Export Excel (Per Juri)</button>
+      <button id="btnExportSemua">Export Semua Lomba</button>
+    </div>
+  </div>
+
+  <!-- XLSX export lib -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <!-- Penilaian script -->
+  <script type="module" src="js/penilaian.js"></script>
+</body>
+</html>
