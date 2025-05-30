@@ -3,35 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Penilaian PORSENI - Masuk</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Digital Scoring - PORSENI</title>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
   <div class="container">
-    <h2>Masuk Sebagai Juri</h2>
+    <h1>Selamat Datang, Juri</h1>
+    <form id="formJuri">
+      <label for="inputJuri">Nama Juri:</label>
+      <input type="text" id="inputJuri" required />
+      <button type="submit">Lanjut</button>
+    </form>
 
-    <label for="inputJuri">Nama Juri:</label>
-    <select id="inputJuri">
-      <option value="">-- Pilih Nama Juri --</option>
-      <option value="Bu Rina">Bu Rina</option>
-      <option value="Pak Dedi">Pak Dedi</option>
-      <option value="Ibu Sari">Ibu Sari</option>
-      <!-- Tambah nama juri lainnya -->
-    </select>
-
-    <button id="btnLanjut">Lanjut</button>
-
-    <div id="pilihanLomba" style="display:none; margin-top: 30px;">
-      <h3>Pilih Lomba</h3>
-      <div class="lomba-buttons">
-        <button class="lombaBtn" data-lomba="Tari">Tari</button>
-        <button class="lombaBtn" data-lomba="Futsal">Futsal</button>
-        <button class="lombaBtn" data-lomba="Pidato">Pidato</button>
-        <!-- Tambah tombol lomba lain -->
+    <div id="pilihLomba" style="display:none;">
+      <h2>Pilih Jenis Lomba:</h2>
+      <div class="button-grid">
+        <a class="btn-lomba" href="#" data-page="penilaian-futsal.html">Futsal Putra</a>
+        <a class="btn-lomba" href="#" data-page="penilaian-voly-putra.html">Voli Putra</a>
+        <a class="btn-lomba" href="#" data-page="penilaian-voly-putri.html">Voli Putri</a>
+        <a class="btn-lomba" href="#" data-page="penilaian-takraw.html">Takraw Putra</a>
+        <a class="btn-lomba" href="#" data-page="penilaian-bulutangkis-solo.html">Bulutangkis Solo</a>
+        <a class="btn-lomba" href="#" data-page="penilaian-bulutangkis-ganda.html">Bulutangkis Ganda</a>
       </div>
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("formJuri").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const juri = document.getElementById("inputJuri").value.trim();
+      if (juri) {
+        localStorage.setItem("juri", juri);
+        document.getElementById("formJuri").style.display = "none";
+        document.getElementById("pilihLomba").style.display = "block";
+      }
+    });
+
+    document.querySelectorAll(".btn-lomba").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const page = btn.getAttribute("data-page");
+        window.location.href = `./${page}`;
+      });
+    });
+  </script>
 </body>
 </html>
